@@ -4148,9 +4148,14 @@ async function run() {
     const {
       data: { browser_download_url: browserDownloadUrl }
     } = uploadAssetResponse;
-    console.log(uploadAssetResponse);
+    // console.log(uploadAssetResponse);
     // Set the output variable for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
     core.setOutput('browser_download_url', browserDownloadUrl);
+
+    //增加其他输出项
+    core.setOutput('id',uploadAssetResponse.id);
+
+
   } catch (error) {
     core.setFailed(error.message);
   }
